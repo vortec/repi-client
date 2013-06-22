@@ -8,7 +8,7 @@ def main():
     parser.add_argument('-H', '--host', help='Redis host (default: localhost)', type=str, default='localhost')
     parser.add_argument('-p', '--port', help='Redis port (default: 6379)', type=int, default=6379)
     parser.add_argument('-n', '--namespace', help='Redis namespace (default: repi)', type=str, default='repi')
-    parser.add_argument('--info-channel', help='Redis general PubSub channel (default: cluster)', type=str, default='cluster')
+    parser.add_argument('-i', '--info-channel', help='Redis general PubSub channel (default: cluster)', type=str, default='cluster')
     args = parser.parse_args()
     
     name = args.name
