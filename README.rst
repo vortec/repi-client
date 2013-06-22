@@ -32,7 +32,8 @@ That's all!
 To connect to a Redis host different from 'localhost', you can see a list of all the available options by running:
 
 .. code-block:: bash
-    $ repi-client my_client_name
+
+    $ repi-client -h
 
 Commands
 --------
