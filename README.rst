@@ -9,11 +9,13 @@ Installation
 repi-client requires a running Redis server. See `Redis' quickstart <http://redis.io/topics/quickstart>`_ for installation instructions. repi-client is compatible with Redis clusters (which is an experimental feature at this point).
 
 .. code-block:: bash
+
     $ pip install repi-client
 
 or from source:
 
 .. code-block:: bash
+
     $ python setup.py install
 
 Getting started
@@ -22,6 +24,7 @@ Getting started
 After installation, you can run the 'repi-client' script.
 
 .. code-block:: bash
+
     $ repi-client my_client_name
 
 That's all!
@@ -38,6 +41,7 @@ The default channels are using the 'repi' namespace. To talk to all connected re
 Exchange a simple PING/PONG:
 
 .. code-block:: json
+
     {
         "command": "PING",
         "client": "master",
@@ -47,6 +51,7 @@ Exchange a simple PING/PONG:
 Get a list of all installed packages:
 
 .. code-block:: json
+
     {
         "command": "PACKAGE_LIST",
         "client": "master",
@@ -56,6 +61,7 @@ Get a list of all installed packages:
 Install a package:
 
 .. code-block:: json
+
     {
         "command": "INSTALL",
         "client": "master",
@@ -68,6 +74,7 @@ Install a package:
 Install a certain package version:
 
 .. code-block:: json
+
     {
         "command": "INSTALL",
         "client": "master",
