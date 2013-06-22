@@ -1,12 +1,12 @@
 repi-client
 ===========
 
-Remote control your PyPi-packages via Redis PubSub. If you have a lot of virtual environments on different machines, install repi-client in each of them and run only one script. After that you can publish events like INSTALL to, you guessed it, install python packages on all connected systems.
+Remote control your PyPi-packages via Redis PubSub. If you have a lot of virtual environments on different machines, install repi-client in each of them and only run one script. After that you can publish events like INSTALL to, you guessed it, install python packages on all connected systems.
 
 Installation
 ------------
 
-repi-client requires a running Redis server. See `Redis's quickstart <http://redis.io/topics/quickstart>`_ for installation instructions. repi-client is compatible with Redis clusters (which is an experimental feature at this point).
+repi-client requires a running Redis server. See `Redis' quickstart <http://redis.io/topics/quickstart>`_ for installation instructions. repi-client is compatible with Redis clusters (which is an experimental feature at this point).
 
 .. code-block:: bash
     $ pip install repi-client
