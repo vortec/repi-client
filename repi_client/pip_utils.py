@@ -1,3 +1,4 @@
+import pkg_resources
 from pip.index import PackageFinder
 from pip.req import InstallRequirement, RequirementSet
 from pip.locations import build_prefix, src_prefix
@@ -19,6 +20,7 @@ def install_package(package, version=None):
 
 def get_package_information():
     ret = {}
+    reload(pkg_resources)  ## gather new package information
     distributions = get_installed_distributions(local_only=False)
     for distribution in distributions:
         project_name = distribution.project_name
