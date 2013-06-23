@@ -22,7 +22,10 @@ def main():
 
     r = redis.Redis(host=host, port=port)
     repi_client = RepiClient(r, name, namespace=namespace, info_channel=info_channel)
-    repi_client.run()
+    try:
+        repi_client.run()
+    except KeyboardInterrupt, err:
+        repi_client.stop()
 
 
 

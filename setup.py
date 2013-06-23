@@ -21,11 +21,11 @@ for m in ('multiprocessing', 'billiard'):
 setup(
     # Package information
     name='repi-client',
-    version='0.1',
+    version='0.2',
     author='Fabian Kochem',
     author_email='fkochem@gmail.com',
     url='http://github.com/vortec/repi-client',
-    description='Redis PubSub interface for PyPi.',
+    description='RePi client, a Redis PubSub interface for PyPi.',
     license='MIT',
     
     # Dependencies

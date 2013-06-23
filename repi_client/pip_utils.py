@@ -19,7 +19,7 @@ def install_package(package, version=None):
 
 def get_package_information():
     ret = {}
-    distributions = get_installed_distributions()
+    distributions = get_installed_distributions(local_only=False)
     for distribution in distributions:
         project_name = distribution.project_name
         version = distribution.version

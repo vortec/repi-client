@@ -29,6 +29,10 @@ class RepiClient(object):
         channel = self._prefixChannel(channel)
         self.pubsub.subscribe(channel)
 
+    def unsubscribe(self, channel):
+        channel = self._prefixChannel(channel)
+        self.pubsub.unsubscribe(channel)
+
 
     def run(self):
         for item in self.pubsub.listen():
@@ -61,6 +65,10 @@ class RepiClient(object):
                     self.publish('INSTALLED', data)
                 except Exception, err:
                     self.publish('ERROR', {'error': str(err)})
+
+    def stop(self):
+        self.unsubscribe(self.info_channel)
+        self.unsubscribe(self.name)
 
 
     def _prefixChannel(self, channel):
