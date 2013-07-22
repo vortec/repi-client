@@ -20,7 +20,7 @@ for m in ('multiprocessing', 'billiard'):
 setup(
     # Package information
     name='repi-client',
-    version='0.3',
+    version='0.4',
     author='Fabian Kochem',
     author_email='fkochem@gmail.com',
     url='http://github.com/vortec/repi-client',
