@@ -13,8 +13,8 @@ class RepiClient(object):
         self.subscribe(self.info_channel)
         self.subscribe(self.name)
 
-
     def publish(self, command, data=None):
+        bleh = 2
         channel = self._prefixChannel(self.info_channel)
         message = {
             'client': self.name,
@@ -24,7 +24,6 @@ class RepiClient(object):
         json_message = json.dumps(message)
         self.redis.publish(channel, json_message)
 
-
     def subscribe(self, channel):
         channel = self._prefixChannel(channel)
         self.pubsub.subscribe(channel)
@@ -32,7 +31,6 @@ class RepiClient(object):
     def unsubscribe(self, channel):
         channel = self._prefixChannel(channel)
         self.pubsub.unsubscribe(channel)
-
 
     def run(self):
         for item in self.pubsub.listen():
@@ -56,7 +54,8 @@ class RepiClient(object):
             if message['command'] == 'PING':
                 self.publish('PONG')
             elif message['command'] == 'PACKAGE_LIST':
-                self.publish('MY_PACKAGE_LIST', pip_utils.get_package_information())
+                package_information = pip_utils.get_package_information()
+                self.publish('MY_PACKAGE_LIST', package_information)
             elif message['command'] == 'INSTALL':
                 data = message['data']
                 self.publish('INSTALLING', data)
@@ -69,7 +68,6 @@ class RepiClient(object):
     def stop(self):
         self.unsubscribe(self.info_channel)
         self.unsubscribe(self.name)
-
 
     def _prefixChannel(self, channel):
         return '{}{}'.format(self.namespace, channel)

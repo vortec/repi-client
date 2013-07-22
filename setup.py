@@ -7,16 +7,15 @@ except ImportError:
     use_setuptools()
     from setuptools import setup, find_packages
 
-
 # Hack to prevent "TypeError: 'NoneType' object is not callable" error
 # in multiprocessing/util.py _exit_function when running `python
-# setup.py test` (see http://www.eby-sarna.com/pipermail/peak/2010-May/003357.html)
+# setup.py test`
+# (see http://www.eby-sarna.com/pipermail/peak/2010-May/003357.html)
 for m in ('multiprocessing', 'billiard'):
     try:
         __import__(m)
     except ImportError:
         pass
-
 
 setup(
     # Package information
@@ -27,7 +26,7 @@ setup(
     url='http://github.com/vortec/repi-client',
     description='RePi client, a Redis PubSub interface for PyPi.',
     license='MIT',
-    
+
     # Dependencies
     install_requires=[
         'pip',
